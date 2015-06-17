@@ -1,0 +1,2 @@
+class SakayaController < ApplicationController
+end
