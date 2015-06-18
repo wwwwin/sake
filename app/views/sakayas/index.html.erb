@@ -4,9 +4,20 @@
 <% @sakayas.each do |sakaya| %>
   <li>
     <%= sakaya.title %>
+    <%= sakaya.price %>
+    <%= sakaya.capacity %>
+    <%= sakaya.stock %>
+    <%= sakaya.description %>
+    <%= sakaya.date %>
+
+    <%= link_to "Show", sakaya_path(sakaya) %>
+    <%= link_to 'Edit', edit_sakaya_path(sakaya) %>
+    <%= link_to 'Delete', sakaya_path(sakaya), :method => :delete, :data => { :confirm => "Are you sure?" } %>
   </li>
 <% end %>
 </ul>
+
+<%= link_to 'New Event', new_sakaya_path %>
 <%= paginate @sakayas %>
 
 

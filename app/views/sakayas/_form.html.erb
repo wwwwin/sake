@@ -1,0 +1,14 @@
+<% if @sakaya.errors.any? %>
+      <ul>
+      <% @sakaya.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+<% end %>
+
+		<%= f.label :title, "Title" %>
+		<%= f.text_field :title, :class => "form-control" %>
+
+		<%= f.label :description, "Description" %>
+		<%= f.text_area :description, :class => "form-control" %>
+
