@@ -1,0 +1,12 @@
+<h1>Sakaya Store</h1>
+
+<ul>
+<% @sakayas.each do |sakaya| %>
+  <li>
+    <%= sakaya.title %>
+  </li>
+<% end %>
+</ul>
+<%= paginate @sakayas %>
+
+
