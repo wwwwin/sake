@@ -6,9 +6,15 @@
       </ul>
 <% end %>
 
-		<%= f.label :title, "Title" %>
+		<%= f.label :title, "品名：" %>
 		<%= f.text_field :title, :class => "form-control" %>
 
-		<%= f.label :description, "Description" %>
+		<%= f.label :price, "售價：" %>
+		<%= f.number_field :price, :class => "form-control" %>
+
+		<%= f.label :capacity, "容量：" %>
+		<%= f.number_field :capacity, :class => "form-control" %>
+
+		<%= f.label :description, "Description:" %>
 		<%= f.text_area :description, :class => "form-control" %>
 

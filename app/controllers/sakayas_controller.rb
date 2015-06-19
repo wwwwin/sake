@@ -1,6 +1,6 @@
 class SakayasController < ApplicationController
 
-before_action :set_event, :only => [ :show, :edit, :update, :destroy]	
+before_action :set_sakaya, :only => [ :show, :edit, :update, :destroy]	
 
 	def index
 		@sakayas = Sakaya.page(params[:page]).per(5)
@@ -15,11 +15,11 @@ before_action :set_event, :only => [ :show, :edit, :update, :destroy]
 		@sakaya = Sakaya.find(params[:id])
 	end
 
-	def creat
+	def create
 		@sakaya = Sakaya.new(sakaya_params)
   	if @sakaya.save
-  			flash[:notice] = "sakaya was successfully created1"
-    		redirect_to sakaya_url 
+  			flash[:notice] = "sake was successfully created1"  	
+    		redirect_to sakayas_url 
   	else
     		render :action => :new	
 	  end
@@ -30,24 +30,23 @@ before_action :set_event, :only => [ :show, :edit, :update, :destroy]
 
 	def update	
 		if @sakaya.update(sakaya_params)
-	    redirect_to events_url 
+	    redirect_to sakayas_url 
 	  else
 	    render :action => :edit
 	  end
 	end
 
-
-	def destory
+	def destroy
 		 @sakaya.destroy
-  		redirect_to :action => :index
+  		 redirect_to :action => :index
 	end
 end
 private
 
-	def event_params
+	def sakaya_params
   		params.require(:sakaya).permit(:title, :description)	
 	end
 
-	def set_event
+	def set_sakaya
   		@sakaya = Sakaya.find(params[:id])
 	end
