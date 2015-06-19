@@ -44,7 +44,7 @@ end
 private
 
 	def sakaya_params
-  		params.require(:sakaya).permit(:title, :description)
+  		params.require(:sakaya).permit(:title, :date, :price, :description)
 	end
 
 	def set_sakaya
