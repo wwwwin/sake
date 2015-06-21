@@ -1,9 +1,38 @@
-<%= @sakaya.title %>
-<%= @sakaya.price %>
-<%= @sakaya.capacity %>
-<%= @sakaya.description %>
+<div class="panel panel-default">
+<div class="panel-heading">
+  <%= @sakaya.title %>
+</div>
+<div class="panel-body">
+  <%= @sakaya.description %>
+</div>
+<table class="table">
+  <thead>
+    <tr>
+      <th>價格</th>
+      <th>容量</th>
+      <th>進貨日期</th>
+      <th>庫存</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <%= @sakaya.price %>
+      </td>
+      <td>
+        <%= @sakaya.capacity %>
+      </td>
+      <td>
+        <%= @sakaya.date %>
+      </td>
+      <td>
+        <%= @sakaya.stock %>
+      </td>
+    </tr>
+  </tbody>
+
+</table>
+</div>
 
 
-<%= simple_format(@sakaya.description) %>
-
-<p><%= link_to 'Back to index', sakayas_path %></p>
+<p><%= link_to '回到管理首頁', sakayas_path %></p>

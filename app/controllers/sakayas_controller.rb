@@ -13,6 +13,7 @@ before_action :set_sakaya, :only => [ :show, :edit, :update, :destroy]
 
   def show
     @sakaya = Sakaya.find(params[:id])
+    @page_title = @sakaya.title
   end
 
   def create
@@ -29,8 +30,8 @@ before_action :set_sakaya, :only => [ :show, :edit, :update, :destroy]
   end
 
   def update
-  if @sakaya.update(sakaya_params)
-    redirect_to sakayas_url
+    if @sakaya.update(sakaya_params)
+      redirect_to sakayas_url
   else
     render :action => :edit
   end
@@ -45,7 +46,7 @@ before_action :set_sakaya, :only => [ :show, :edit, :update, :destroy]
   private
 
   def sakaya_params
-    params.require(:sakaya).permit(:title, :date, :price, :description)
+    params.require(:sakaya).permit(:title, :date, :price, :description, :stock)
   end
 
   def set_sakaya

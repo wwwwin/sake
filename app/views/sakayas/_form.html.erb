@@ -1,8 +1,8 @@
 <% if @sakaya.errors.any? %>
     <ul>
-    <% @sakaya.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-    <% end %>
+        <% @sakaya.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
     </ul>
 <% end %>
 
@@ -15,6 +15,12 @@
     <%= f.label :capacity, "容量：" %>
     <%= f.number_field :capacity, :class => "formstree-control" %>
 
-    <%= f.label :description, "Description:" %>
+    <%= f.label :stock, "庫存：" %>
+    <%= f.number_field :stock, :class => "formstree-control" %>
+
+    <%= f.label :stock, "進貨日期：" %>
+    <%= f.date_select :date, :class => "formstree-control" %>
+
+    <%= f.label :description, "商品描述:" %>
     <%= f.text_area :description, :class => "form-control" %>
 

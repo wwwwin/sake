@@ -1,19 +1,32 @@
-<h1>Sakaya Store</h1>
-
-<ul>
+<table class="table">
+<td>
+  <h1>Sakaya Store</h1>
+</td>
 <% @sakayas.each do |sakaya| %>
-<li>
-    <%= sakaya.title %>
-    <%= sakaya.price %>
-
-    <%= link_to "Show", sakaya_path(sakaya) %>
-    <%= link_to 'Edit', edit_sakaya_path(sakaya) %>
-    <%= link_to 'Delete', sakaya_path(sakaya), :method => :delete, :data => { :confirm => "Are you sure?" } %>
+<tr>
+    <td>
+      <%= sakaya.title %>
+    </td>
+    <td>
+      <%= sakaya.price %>
+    </td>
+    <td>
+      <%= sakaya.stock %>
+    </td>
+    <td>
+      <%= link_to "Show", sakaya_path(sakaya), :class => "btn btn-default" %>
+    </td>
+    <td>
+      <%= link_to 'Edit', edit_sakaya_path(sakaya), :class => "btn btn-default" %>
+    </td>
+    <td>
+      <%= link_to 'Delete', sakaya_path(sakaya), :method => :delete, :data => { :confirm => "你確定要刪除資料?" }, :class => "btn btn-danger" %>
+    </td>
   </li>
 <% end %>
-</ul>
-
-<%= link_to 'New sake', new_sakaya_path %>
+</tr>
+</table>
+<%= link_to '新增商品', new_sakaya_path , :class => "btn btn-primary"%>
 <%= paginate @sakayas %>
 
 
