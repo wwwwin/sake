@@ -3,8 +3,8 @@ class SakayasController < ApplicationController
 before_action :set_sakaya, :only => [ :show, :edit, :update, :destroy]
 
   def index
-    @sakayas = Sakaya.page(params[:page]).per(5)
-
+    @sakayas = Sakaya.order(created_at: :desc).page(params[:page]).per(5)
+    @sakaya = Sakaya.new
   end
 
   def new
@@ -21,9 +21,9 @@ before_action :set_sakaya, :only => [ :show, :edit, :update, :destroy]
     if @sakaya.save
       flash[:notice] = "sake was successfully created1"
       redirect_to sakayas_url
-  else
-      render :action => :new
-  end
+    else
+        render :new
+    end
   end
 
   def edit
@@ -51,4 +51,6 @@ before_action :set_sakaya, :only => [ :show, :edit, :update, :destroy]
 
   def set_sakaya
     @sakaya = Sakaya.find(params[:id])
+  end
+
   end
